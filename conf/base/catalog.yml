@@ -2,3 +2,15 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html
+
+details:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/details.csv
+
+ratings:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/ratings.csv
+
+prepro_ratings:
+  type: pandas.ParquetDataSet
+  filepath: data/02_intermediate/prepro_ratings.parquet
