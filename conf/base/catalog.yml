@@ -14,3 +14,7 @@ ratings:
 prepro_ratings:
   type: pandas.ParquetDataSet
   filepath: data/02_intermediate/prepro_ratings.parquet
+
+prepro_details:
+  type: pandas.ParquetDataSet
+  filepath: data/02_intermediate/prepro_details.parquet
