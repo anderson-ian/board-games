@@ -18,3 +18,7 @@ prepro_ratings:
 prepro_details:
   type: pandas.ParquetDataSet
   filepath: data/02_intermediate/prepro_details.parquet
+
+merged_ratings:
+  type: pandas.ParquetDataSet
+  filepath: data/03_primary/merged_games.parquet

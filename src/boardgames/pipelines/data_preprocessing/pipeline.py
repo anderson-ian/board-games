@@ -1,6 +1,6 @@
 from kedro.pipeline import Pipeline, node
 
-from .nodes import preprocess_ratings, preprocess_details
+from .nodes import preprocess_ratings, preprocess_details, merge_ratings_details
 
 def create_pipeline(**kwargs):
     return Pipeline(
@@ -17,6 +17,11 @@ def create_pipeline(**kwargs):
                 outputs="prepro_details",
                 name="preprocess_details_node",
             ),
-
+            node(
+                func=merge_ratings_details,
+                inputs=["prepro_ratings","prepro_details"],
+                outputs="merged_ratings",
+                name="merged_ratings_node",
+            ),
         ]
     )
