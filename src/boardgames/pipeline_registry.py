@@ -4,6 +4,7 @@ from typing import Dict
 from kedro.pipeline import Pipeline
 
 from boardgames.pipelines import data_preprocessing as dp
+from boardgames.pipelines import data_science as ds
 
 
 def register_pipelines() -> Dict[str, Pipeline]:
@@ -14,7 +15,10 @@ def register_pipelines() -> Dict[str, Pipeline]:
     """
 
     data_preprocessing_pipeline = dp.create_pipeline()
+    data_science_pipeline = ds.create_pipeline()
+
 
     return {
-        "__default__": data_preprocessing_pipeline
+        "__default__": data_preprocessing_pipeline,
+        "Data Science": data_science_pipeline
         }
