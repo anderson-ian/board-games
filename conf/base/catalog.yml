@@ -25,3 +25,4 @@ merged_ratings:
 
 primary_model_input:
   type: pandas.CSVDataSet
+  filepath: data/04_feature/primary_model_input.csv
