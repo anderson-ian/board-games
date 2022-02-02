@@ -22,3 +22,6 @@ prepro_details:
 merged_ratings:
   type: pandas.ParquetDataSet
   filepath: data/03_primary/merged_games.parquet
+
+primary_model_input:
+  type: pandas.CSVDataSet
