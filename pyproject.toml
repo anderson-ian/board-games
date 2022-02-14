@@ -11,10 +11,10 @@ use_parentheses = true
 line_length = 88
 known_third_party = "kedro"
 
-[tool.pytest.ini_options]
-addopts = """
---cov-report term-missing \
---cov src/boardgames -ra"""
+#[tool.pytest.ini_options]
+#addopts = """
+#--cov-report term-missing \
+#--cov src/boardgames -ra"""
 
 [tool.coverage.report]
 fail_under = 0
