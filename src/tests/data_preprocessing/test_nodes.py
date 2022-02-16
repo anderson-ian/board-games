@@ -3,7 +3,8 @@ import pandas as pd
 
 from src.boardgames.pipelines.data_preprocessing.nodes import (
     preprocess_ratings,
-    preprocess_details
+    preprocess_details,
+    merge_ratings_details
 )
 
 class TestPrimaryNodes:
@@ -55,3 +56,32 @@ class TestPrimaryNodes:
 
         assert output
         assert actual_df.equals(expected_df)
+
+    def test_merge_ratings_details(self):
+        """
+        Confirm that the merge works as expected.
+        """
+        ratings_df = pd.DataFrame({
+            'id' : [1, 2, 3],
+            'num' : ['lorem','ipsum','dolor'],
+            'col_A' : [22.5,33.45,6]
+        })
+
+        details_df = pd.DataFrame({
+            'id' : [1, 2, 3, 4, 5],
+            'num' : ['lorem','ipsum','dolor','sit','amet'],
+            'col_B': ['fancy','dress','is','so','fun']
+        })
+
+        expected_df = pd.DataFrame({
+            'id' : [1, 2, 3],
+            'num' : ['lorem','ipsum','dolor'],
+            'col_A' : [22.5,33.45,6],
+            'col_B': ['fancy','dress','is']
+        })
+
+        actual_df = merge_ratings_details(prepro_ratings=ratings_df,
+                                          prepro_details=details_df)
+
+        assert actual_df.equals(expected_df)
+
